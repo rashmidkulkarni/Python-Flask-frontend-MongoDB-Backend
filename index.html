@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongDB Flask App</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+    <h1>MongDB Flask App </h1>
+    <div class = "content">
+        <form method="POST">
+        <p>
+            <b><label for="content">Todo Content</label></b>
+        </p>
+        <p>
+            <b><input type = "text" name ="content" placeholder="add todo.....->"></input> </b>
+        </p>
+        <p>
+            <b><label for="degree">Degree</label></b>
+        </p>
+        <p>
+                 <input
+                 id="degree-0"
+                 name = "degree"
+                 required
+                 type = "radio"
+                 value = "important">
+                 <label for ="degree-0">Important</label>
+
+
+        </p>
+            <p>
+                 <input
+                 id="degree-1"
+                 name = "degree"
+                 required
+                 type = "radio"
+                 value = "un-important">
+                 <label for ="degree-0">Un-Important</label>
+
+            </p>
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+        {% for todo in todos %}
+            <div class="todo">
+                <p>
+                    {{todo['content']}} <i>{{todo['degree']}}</i>
+                </p>
+        {% end for %}
+            </div>
+
+    </div>
+
+</body>
+</html>
